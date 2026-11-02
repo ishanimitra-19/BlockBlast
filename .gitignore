@@ -1,0 +1,5 @@
+.DS_Store
+highscore.json
+__pycache__/
+
+.git-broken-ignore/
