@@ -30,7 +30,7 @@ Normally, this is played on a touch screen, but this version allows you to play 
 
 ## Wiring
 
-| Component pin | ESP32 GPIO |
+| Component | Connection|
 | --- | --- |
 | Potentiometer| Use small jumpers to connect to + and - charge, each jumper should be aligned next to the top and bottom legs of the pot. Use one long jumper aligned next to the middle leg of the pot, and plug the other end of the jumper into a pin that is beside the header of the ESP. |
 | Push Button | Use a small jumper connected to the pin next to the leg of the button into the - charge, and use a long jumper to connect the other leg to a pin next to the ESP header|
