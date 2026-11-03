@@ -32,7 +32,7 @@ Normally, this is played on a touch screen, but this version allows you to play 
 
 | Component pin | ESP32 GPIO |
 | --- | --- |
-| Joystick VRx | 39 |
+| Potentiometer| Use small jumpers to connect to + and - charge, each jumper should be aligned next to the top and bottom legs of the pot. Use one long jumper aligned next to the middle leg of the pot, and plug the other end of the jumper into a pin that is beside the header of the ESP. |
 | Joystick VRy | 32 |
 | Joystick SW | 33 |
 | Joystick +5V | 3V3 |
