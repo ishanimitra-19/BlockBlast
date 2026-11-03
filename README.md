@@ -33,16 +33,12 @@ Normally, this is played on a touch screen, but this version allows you to play 
 | Component pin | ESP32 GPIO |
 | --- | --- |
 | Potentiometer| Use small jumpers to connect to + and - charge, each jumper should be aligned next to the top and bottom legs of the pot. Use one long jumper aligned next to the middle leg of the pot, and plug the other end of the jumper into a pin that is beside the header of the ESP. |
-| Joystick VRy | 32 |
-| Joystick SW | 33 |
-| Joystick +5V | 3V3 |
-| Joystick GND | GND |
-| Potentiometer wiper (middle pin) | 15 |
-| Potentiometer outer pins | 3V3 and GND |
-| Push button, one leg | 2 |
-| Push button, other leg | GND |
+| Push Button | Use a small jumper connected to the pin next to the leg of the button into the - charge, and use a long jumper to connect the other leg to a pin next to the ESP header|
+| ESP 32 | Use two jumpers to connect from a pin next to the header, to a - and + pin |
+| Joystick | Connect the blue, purple, and grey wires (in a row) into pins next to the headers. Connect the white joystick wire into the - charge, and the black joystick wire into the + charge. Use one small jumper to connect the bottom right header pin to the + charge next to the ESP |
 
-The joystick module is powered from the ESP32's 3.3 V pin (not 5 V) so its analog outputs stay within the ESP32's ADC range. Both buttons use the ESP32's internal pull-ups, so they just connect the pin to GND when pressed and need no resistor.
+# Optional 
+Use extra long jumpers to secure the joystick to the right side of the breadboard, but do not wire anything into the + or - pins. This is simply to keep the joystick on the breadboard to make game play more practical. 
 
 ### Fritzing diagram
 
@@ -50,37 +46,20 @@ The joystick module is powered from the ESP32's 3.3 V pin (not 5 V) so its analo
 
 The editable sketch is in [`fritzing/blockblast.fzz`](fritzing/blockblast.fzz) (the TTGO and joystick parts are bundled inside it).
 
-## How it works
-
-`BlockBlast.ino` runs the whole game on the ESP32: it reads the three inputs, keeps the grid, scores, and clears lines. Whenever something changes it calls `sendFrame()`, which prints one line over serial describing the full state, for example:
-
-```
-F;33;0;1;0;0;0;0000...0000;3,2,.####.,7;3,3,..#..####,5;2,2,####,1
-```
-
-That line is score, mode, selected slot, cursor x, cursor y, game-over flag, the 64 grid cells, and the three pieces.
-
-`viewer.py` opens the serial port, parses each line, redraws the board in a Pygame window, and plays the music. The ESP32 never needs to know anything about the display, and the viewer never needs to know the game rules.
 
 ## How to run
 
 ### 1. Flash the ESP32
+1. Open BlockBlast.ino in Arduino IDE
+2. Select the board ESP 32 Dev Module and your USB port.
+3. Upload sketch. 
 
-1. Install the [Arduino IDE](https://www.arduino.cc/en/software) and add the ESP32 board package (Boards Manager, search "esp32" by Espressif).
-2. Open `BlockBlast.ino`.
-3. Select the board **ESP32 Dev Module** (or **TTGO LoRa32-OLED / T-Display**) and your USB port.
-4. Upload.
-
-### 2. Run the viewer
+### 2. Run in terminal
 
 ```
 pip3 install pygame pyserial numpy
 python3 viewer.py
 ```
-
-The viewer auto-detects the ESP32's serial port. If it picks the wrong one, pass it explicitly, e.g. `python3 viewer.py /dev/cu.usbserial-XXXX`.
-
-Close the Arduino Serial Monitor first, since only one program can own the port at a time. Press **M** in the viewer to mute or unmute the music.
 
 ### 3. Play
 
