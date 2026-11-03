@@ -1,8 +1,6 @@
 # Block Blast
 
-A handheld Block Blast game: an ESP32 (LILYGO TTGO T-Display) reads a joystick, a potentiometer, and a push button on a breadboard and streams the game state over USB serial to a Pygame viewer on a laptop, which draws the board and plays the music.
-
-Built for Module 2 (Interactive Devices) of Creative Embedded Systems (COMS BC3930), Barnard College, Fall 2026.
+Build a handheld Block Blast game, with an ESP32, joystick, potentiometer, push button and a breadboard, with game displayed over a Pygame viewer on a Macbook. 
 
 **Blog post with the full write-up, design decisions, and videos:** https://ishanimitra-19.github.io/CES-ishanimitra.github.io/module2.html
 
@@ -10,25 +8,25 @@ Built for Module 2 (Interactive Devices) of Creative Embedded Systems (COMS BC39
 
 ## What it is
 
-Block Blast is a Tetris-style puzzle: you get three pieces at a time and place them anywhere on an 8x8 grid. Filling a full row or column clears it. The game ends when none of your pieces fit.
-
-Instead of a touchscreen, this version is played with physical controls on a breadboard:
+Block Blast is like Tetris, except the blocks don't fall. Instead, you are given three pieces at a time, and must use deduction to fit them into the 8x8 grid. Once you fill a row or column, it is cleared and your score increases. You lose once you can't fit any more pieces, when you get "blocked out". 
+Normally, this is played on a touch screen, but this version allows you to play with a physical controller. 
 
 | Control | What it does |
 | --- | --- |
 | Potentiometer | Chooses which of the three pieces is selected |
-| Push button (breadboard) | Confirms the piece and enters placement mode |
-| Joystick | Moves the piece around the grid |
-| Joystick button (press down) | Drops the piece |
+| Push button (breadboard) | Selects the piece |
+| Joystick | Moves around the 8x8 grid |
+| Joystick button | Places the piece on the grid |
 
 ## Hardware
 
-- LILYGO TTGO T-Display (ESP32)
-- KY-023 analog joystick module
-- 10k potentiometer (trimmer)
-- Tactile push button
-- Full-size breadboard and jumper wires
-- USB-C cable to the computer
+- ESP32
+- Analog joystick 
+- Potentiometer 
+- Push button
+- Breadboard
+- Jumper wires
+- USB-C cable
 
 ## Wiring
 
