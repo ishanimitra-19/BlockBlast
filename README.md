@@ -44,8 +44,6 @@ Use extra long jumpers to secure the joystick to the right side of the breadboar
 
 ![Breadboard diagram](fritzing/blockblast_breadboard.png)
 
-The editable sketch is in [`fritzing/blockblast.fzz`](fritzing/blockblast.fzz) (the TTGO and joystick parts are bundled inside it).
-
 
 ## How to run
 
@@ -63,11 +61,11 @@ python3 viewer.py
 
 ### 3. Play
 
-1. Turn the potentiometer to highlight one of the three pieces.
-2. Press the breadboard button to pick it up.
-3. Move it with the joystick.
-4. Press the joystick down to drop it (or press the breadboard button again to cancel and pick a different piece).
-5. After a game over, press the breadboard button to start a new game.
+1. Turn the potentiometer to hover over one of the three pieces.
+2. Press the button to select the piece.
+3. Move around the piece on the grid with the joystick.
+4. Press the joystick down to drop the piece into place. 
+5. Play until you are blocked out or beat your high score! 
 
 ## Files
 
@@ -80,5 +78,4 @@ media/blockblast_demo.gif        Gameplay demo
 ```
 
 ## AI use
-
-The game code was generated with Claude (Fable 5.1) from a prompt describing the hardware and the desired controls, then iterated on to fix bugs and change the music. See the [blog post](https://ishanimitra-19.github.io/CES-ishanimitra.github.io/module2.html) for the exact prompt.
+Claude Fable 5.1 was used to assist in writing the code, but all design, creative elements, wiring and ideas were my own. 
